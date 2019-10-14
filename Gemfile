@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'will_paginate' 
 gem 'bootstrap-will_paginate' 
 gem 'faker'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'sqlite3'
