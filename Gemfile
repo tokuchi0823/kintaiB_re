@@ -14,6 +14,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate' 
 gem 'faker'
 gem 'rails-i18n'
+gem 'rounding'
 
 group :development, :test do
   gem 'sqlite3'

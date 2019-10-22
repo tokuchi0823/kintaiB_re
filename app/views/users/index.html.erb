@@ -1,7 +1,19 @@
 <% provide(:title, 'All Users') %>
-<h1>ユーザ一覧</h1>
+<% if request.fullpath == "/users?utf8=%E2%9C%93&search=" || request.fullpath == "/users" %>
+ <h1>ユーザ一覧</h1>
+<% else %>
+ <h1>検索結果</h1>
+<% end %>
 
 <div class="col-md-10 col-md-offset-1">
+    
+  <div style="text-align: right">
+  <p style="text-align: right">ユーザー名検索　　　　　</p>
+   <%= form_tag(users_path,:method => 'get') do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索', :name => nil, class: "btn btn-xs btn-primary" %>
+    </div>
+   <% end %>
   <%= will_paginate %>
   <table class="table table-condensed table-hover" id="table-users">
     <thead>

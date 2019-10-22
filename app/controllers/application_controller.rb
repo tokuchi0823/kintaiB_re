@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
   def admin_user
     redirect_to root_url unless current_user.admin?
   end
+  
+  def admin_correct_user
+    redirect_to(root_url) unless current_user?(@user) || current_user.admin?
+  end
+      
 
   def set_one_month
     if params[:first_day].nil?
