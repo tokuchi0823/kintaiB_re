@@ -4,11 +4,9 @@
  <table class="table table-bordered table-condensed user-table">
    <tr>
      <td>
-        <%= link_to "←", user_path(params: {id: @user.id, first_day: @first_day.prev_month }),
-                         class: "btn btn-xs btn-primary" %>
+        <%= link_to "←",  user_path(date: @first_day.prev_month), class: "btn btn-xs btn-primary" %>
         &emsp;<%= l(@first_day, format: :middle) %> 時間管理表&emsp;
-        <%= link_to "→", user_path(params: {id: @user.id, first_day: @first_day.next_month }),
-                         class: "btn btn-xs btn-primary" %>
+        <%= link_to "→", user_path(date: @first_day.next_month), class: "btn btn-xs btn-primary" %>
      </td>
      <td>指定勤務時間　<%= format_basic_info(@user.work_time) %></td>
      <td><%= format_basic_info(@user.basic_time) %>　基本時間</td>
