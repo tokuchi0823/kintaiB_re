@@ -59,14 +59,14 @@
           <td><%= l(day.started_at.floor_to(15.minutes), format: :only_time).to_i if day.started_at.present? %></td>
           <td><%= l(day.started_at.floor_to(15.minutes), format: :only_mi) if day.started_at.present? %></td>
           <td>  
-          <% if day.worked_on == Date.today && day.started_at.nil? %>
+          <% if day.worked_on == Date.current && day.started_at.nil? %>
            <%= link_to "出社", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
           <% end %>
           </td>
           <td><%= l(day.finished_at.floor_to(15.minutes), format: :only_time) if day.finished_at.present? %></td>
           <td><%= l(day.finished_at.floor_to(15.minutes), format: :only_mi) if day.finished_at.present? %></td>
           <td>
-          <% if day.worked_on == Date.today && day.started_at.present? && day.finished_at.nil? %>
+          <% if day.worked_on == Date.current && day.started_at.present? && day.finished_at.nil? %>
            <%= link_to "退社", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
           <% end %>
           </td>
