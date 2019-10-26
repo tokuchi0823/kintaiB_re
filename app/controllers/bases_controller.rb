@@ -2,6 +2,7 @@ class BasesController < ApplicationController
   before_action :admin_user, only: [:index, :delete, :update, :create]
    
   def new
+    @base = Base.new
   end
   
   def index
@@ -22,7 +23,24 @@ class BasesController < ApplicationController
     end
   end
   
-   private
+  def create
+    @base = Base.new(base_params)
+    if @base.save
+      flash[:success] = '新規作成に成功しました。'
+      redirect_to bases_url(@base)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @base = Base.find(params[:id])
+    @base.destroy
+    flash[:success] = "拠点を削除しました。"
+    redirect_to bases_url(@base)
+  end
+  
+    private
 
     def base_params
       params.require(:base).permit(:base_no, :base_name, :base_type)
