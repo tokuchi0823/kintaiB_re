@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'bases/new'
+
   root 'static_pages#top' 
   get '/signup', to: 'users#new'
   
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/edit-basic-info/:id', to: 'users#edit_basic_info', as: :basic_info
   patch 'update-basic-info', to: 'users#update_basic_info'
+  
+  resources :bases
   
   resources :users do
     member do
