@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/edit-basic-info/:id', to: 'users#edit_basic_info', as: :basic_info
   patch 'update-basic-info', to: 'users#update_basic_info'
+  get '/on_duty', to: 'users#on_duty'
   
   resources :bases
   
